@@ -1,7 +1,6 @@
-# Use official nginx image
-FROM nginx:latest
-# Remove default nginx html files
-RUN rm -rf /usr/share/nginx/html/*
-COPY index.html /usr/share/nginx/html/
-EXPOSE 80
+FROM node:18
+WORKDIR /app
+COPY app.js .
+EXPOSE 3000
+CMD ["node", "app.js"]
 
